@@ -19,7 +19,6 @@
 		color: white;
 	  }
 	  .btn-reset {
-	    margin-left: 100px;
 		color: white;
 		background-color: red;
 	  }
@@ -27,20 +26,23 @@
   </head>
   <body>
     <button class="btn-convert" type="button">Конвертировать</button>
-	<label title="Нажмите, если вставляете код CSS"> Это CSS-код?
-	  <input class="style" type="checkbox">
-	</label>
 	<button class="btn-reset">Очистить</button>
     <textarea class="text-code" id="test" placeholder="Вставьте код"></textarea>
 	
 	<script>
 	  let textCode = document.querySelector(".text-code");
-	  let isCss = document.querySelector(".style");
 	  let btnConvert = document.querySelector(".btn-convert");
 	  let btnReset = document.querySelector(".btn-reset");
 	  
 	  btnConvert.onclick = function() {
 	    let str = textCode.value;
+		let isCss = false;
+		
+		if (str.indexOf("<") > -1) {
+		  isCss = false;
+		} else {
+		  isCss = true;
+		}
 		
 		let = re1 = /</gi;
 		let = re2 = />/gi;
@@ -60,7 +62,7 @@
 		str = lines.join("\n")		
 		
 		
-		if (isCss.checked) {
+		if (isCss) {
 		  textCode.value = `<div class="css-code hidden">\n${str}\n</div>`;
 		  
 		  return;
