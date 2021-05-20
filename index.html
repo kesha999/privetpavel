@@ -63,12 +63,12 @@
 		
 		
 		if (isCss) {
-		  textCode.value = `<div class="css-code hidden">\n${str}\n</div>`;
+		  textCode.value = `  <div class="css-code hidden">\n${str}\n  </div>`;
 		  
 		  return;
 		}
 		
-		textCode.value = `<div class="html-code hidden">\n${str}\n</div>`;
+		textCode.value = `  <div class="html-code hidden">\n${str}\n  </div>`;
 	  }
 	  
 	  btnReset.onclick = function() {
